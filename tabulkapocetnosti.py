@@ -2,14 +2,14 @@ import string
 from collections import Counter
 letters = string.ascii_lowercase
 res = ''
-with open('tabulka_pocetnosti.txt','r') as fp:
+with open('tabulka_pocetnosti.txt', 'r') as fp:
     for line in fp:
         lower = line.lower()
         res += lower
-        res = res.replace('\n','')
-    print(res)
+        res = res.replace('\n', '')
+print(res)
 c = Counter(res)
 print(c)
-for i in c.keys():
-    if i in letters:
-        print(i.upper(),'-',c[i])
+for char in letters:
+    if char in c:
+        print(char.upper(), '-', c[char])
